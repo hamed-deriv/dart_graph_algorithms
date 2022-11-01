@@ -1,5 +1,3 @@
-import 'dart:developer' as dev;
-
 import 'package:equatable/equatable.dart';
 
 import 'package:dart_graph_algorithms/edge.dart';
@@ -20,9 +18,9 @@ class Vertex<T> with EquatableMixin {
   void removeEdge(Vertex<T> vertex) =>
       _edges.removeWhere((Edge<T> edge) => edge.end == vertex);
 
-  void print() {
+  void printEdges() {
     for (final Edge<T> edge in _edges) {
-      dev.log('$data --(${edge.weight})--> ${edge.end.data}');
+      print('$data -(${edge.weight ?? '~'})-> ${edge.end.data}');
     }
   }
 

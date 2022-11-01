@@ -1,22 +1,14 @@
-// ignore_for_file: cascade_invocations
+import 'package:dart_graph_algorithms/graph_traverser.dart';
+import 'package:dart_graph_algorithms/vertex.dart';
 
-import 'package:dart_graph_algorithms/graph.dart';
+import 'test_graph.dart';
 
 void main(List<String> arguments) {
-  final Graph<String> graph = Graph<String>(isDirected: false);
+  final TestGraph tester = TestGraph();
 
-  graph.addVertex('A');
-  graph.addVertex('B');
+  print('### DFS ###');
+  depthFirstTraverser(tester.start, <Vertex<String>>[]);
 
-  graph.addEdge(
-    vertex1: graph.getVertex('A'),
-    vertex2: graph.getVertex('B'),
-    weight: 100,
-  );
-
-  graph.print();
-
-  graph.removeVertex(graph.getVertex('A'));
-
-  graph.print();
+  print('\n### BFS ###');
+  breadthFirstTraverser(tester.start);
 }

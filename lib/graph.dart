@@ -48,7 +48,7 @@ class Graph<T> {
 
   void print() {
     for (final Vertex<T> vertex in vertices) {
-      vertex.print();
+      vertex.printEdges();
     }
   }
 }
